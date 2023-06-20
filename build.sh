@@ -11,6 +11,7 @@ rm -rf hardware/qcom-caf/msm8998/audio
 rm -rf hardware/qcom-caf/msm8998/display
 rm -rf prebuilts/clang/host/linux-x86/clang-r450784d
 rm -rf hardware/xiaomi/aidl/power-libperfmgr || exit 0
+rm -rf system/extras/su
 git clone https://gitlab.com/ImSurajxD/clang-r450784d prebuilts/clang/host/linux-x86/clang-r450784d --depth=1
 git clone https://github.com/NopeNopeGuy/android_device_xiaomi_whyred device/xiaomi/whyred --depth=1 -b pe
 git clone https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_whyred.git vendor/xiaomi/whyred --depth=1
