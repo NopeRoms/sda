@@ -15,7 +15,7 @@ git clone https://gitlab.com/ImSurajxD/clang-r450784d prebuilts/clang/host/linux
 git clone https://github.com/NopeNopeGuy/android_device_xiaomi_whyred device/xiaomi/whyred --depth=1 -b pe
 git clone https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_whyred.git vendor/xiaomi/whyred --depth=1
 git clone https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_sdm660-common.git vendor/xiaomi/sdm660-common --depth=1
-git clone https://github.com/NopeNopeGuy/WhyredKernel kernel/xiaomi/whyred -b t_dynamic --depth=1
+git clone https://github.com/shekhawat2/android_kernel_xiaomi_whyred kernel/xiaomi/whyred -b KCUF_419 --depth=1
 git clone https://github.com/shekhawat2/android_hardware_qcom_media hardware/qcom-caf/msm8998/media --depth=1
 git clone https://github.com/shekhawat2/android_hardware_qcom_audio hardware/qcom-caf/msm8998/audio --depth=1
 git clone https://github.com/shekhawat2/android_hardware_qcom_display hardware/qcom-caf/msm8998/display --depth=1
