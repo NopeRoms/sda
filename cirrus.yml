@@ -1,0 +1,21 @@
+env:
+    CIRRUS_SHELL: bash
+    USE_CCACHE: 1
+    CCACHE_DIR: /tmp/ccache
+    CCACHE_COMPRESSLEVEL: 5
+task:
+  name: "Build LineageOS" 
+  timeout_in: 120m
+  container:
+      image: ghcr.io/sushrut1101/docker:arch
+      cpu: 8
+      memory: 32G
+      greedy: true
+  Prepare_script:
+      - pacman -Syu pigz aria2 git-lfs --noconfirm
+  Download_script:
+      - bash ./download.sh    
+  Build_script:
+      - bash ./build.sh
+  Upload_Actual_script:
+      - rclone copy out/target/product/whyred/PixelExperience*.zip drive:roms || rclone copy out/target/product/whyred/Lineage*.zip drive:roms || exit 0
