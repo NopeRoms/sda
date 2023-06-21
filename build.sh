@@ -13,8 +13,7 @@ rm -rf prebuilts/clang/host/linux-x86/clang-r450784d
 rm -rf system/extras/su
 git clone https://gitlab.com/ImSurajxD/clang-r450784d prebuilts/clang/host/linux-x86/clang-r450784d --depth=1
 git clone https://github.com/NopeNopeGuy/device_xiaomi_whyred-1 device/xiaomi/whyred --depth=1 -b pe-13
-git clone https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_whyred.git vendor/xiaomi/whyred --depth=1
-git clone https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_sdm660-common.git vendor/xiaomi/sdm660-common --depth=1
+git clone https://github.com/NopeNopeGuy/vendor_xiaomi_whyred-1/ vendor/xiaomi/whyred --depth=1
 git clone https://github.com/NopeNopeGuy/android_kernel_xiaomi_whyred kernel/xiaomi/whyred -b KCUF_419 --depth=1 --recurse-submodules
 git clone https://github.com/shekhawat2/android_hardware_qcom_media hardware/qcom-caf/msm8998/media --depth=1
 git clone https://github.com/shekhawat2/android_hardware_qcom_audio hardware/qcom-caf/msm8998/audio --depth=1
