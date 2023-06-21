@@ -10,20 +10,15 @@ rm -rf hardware/qcom-caf/msm8998/media
 rm -rf hardware/qcom-caf/msm8998/audio
 rm -rf hardware/qcom-caf/msm8998/display
 rm -rf prebuilts/clang/host/linux-x86/clang-r450784d
-rm -rf hardware/xiaomi/aidl/power-libperfmgr || exit 0
 rm -rf system/extras/su
 git clone https://gitlab.com/ImSurajxD/clang-r450784d prebuilts/clang/host/linux-x86/clang-r450784d --depth=1
-git clone https://github.com/NopeNopeGuy/android_device_xiaomi_whyred device/xiaomi/whyred --depth=1 -b pe
+git clone https://github.com/NopeNopeGuy/device_xiaomi_whyred-1 device/xiaomi/whyred --depth=1 -b pe-13
 git clone https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_whyred.git vendor/xiaomi/whyred --depth=1
 git clone https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_sdm660-common.git vendor/xiaomi/sdm660-common --depth=1
-git clone https://github.com/shekhawat2/android_kernel_xiaomi_whyred kernel/xiaomi/whyred -b KCUF_419 --depth=1 --recurse-submodules
+git clone https://github.com/NopeNopeGuy/android_kernel_xiaomi_whyred kernel/xiaomi/whyred -b KCUF_419 --depth=1 --recurse-submodules
 git clone https://github.com/shekhawat2/android_hardware_qcom_media hardware/qcom-caf/msm8998/media --depth=1
 git clone https://github.com/shekhawat2/android_hardware_qcom_audio hardware/qcom-caf/msm8998/audio --depth=1
 git clone https://github.com/shekhawat2/android_hardware_qcom_display hardware/qcom-caf/msm8998/display --depth=1
-mkdir -p hardware/qcom-caf/whyred
-cp -r hardware/qcom-caf/msm8998/media hardware/qcom-caf/whyred/media
-cp -r hardware/qcom-caf/msm8998/audio hardware/qcom-caf/whyred/audio
-cp -r hardware/qcom-caf/msm8998/display hardware/qcom-caf/whyred/display
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
