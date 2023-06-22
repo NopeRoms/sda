@@ -18,4 +18,4 @@ task:
   Build_script:
       - bash ./build.sh
   Upload_Actual_script:
-      - rclone copy out/target/product/whyred/PixelExperience*.zip drive:roms || rclone copy out/target/product/whyred/Lineage*.zip drive:roms || exit 0
+      - rclone copy out/target/product/whyred/Lineage*.zip drive:roms || rclone copy out/target/product/whyred/lineage*.zip drive:roms || exit 0

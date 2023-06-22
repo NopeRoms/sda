@@ -1,23 +1,20 @@
-time sudo pacman -Syu
 python --version
-time repo init -u https://github.com/PixelExperience/manifest -b thirteen-plus --depth=1 --git-lfs -g default,-mips,-darwin,-notdefault
+time repo init -u https://github.com/LineageOS/android.git -b lineage-20.0 --depth=1 --git-lfs -g default,-mips,-darwin,-notdefault
 echo "repo init"
 time repo sync -j32 -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync || repo sync -j4 -c --no-clone-bundle --no-tags --optimized-fetch --prune --force-sync
 git lfs install
 repo forall -c 'git lfs pull'
 echo "sync complete"
-rm -rf hardware/qcom-caf/msm8998/media
-rm -rf hardware/qcom-caf/msm8998/audio
-rm -rf hardware/qcom-caf/msm8998/display
-rm -rf prebuilts/clang/host/linux-x86/clang-r450784d
-rm -rf system/extras/su
-git clone https://gitlab.com/ImSurajxD/clang-r450784d prebuilts/clang/host/linux-x86/clang-r450784d --depth=1
-git clone https://github.com/NopeNopeGuy/device_xiaomi_whyred-1 device/xiaomi/whyred --depth=1 -b pe-13
-git clone https://github.com/NopeNopeGuy/vendor_xiaomi_whyred-1/ vendor/xiaomi/whyred --depth=1 -b thirteen-4.19
-git clone https://github.com/NopeNopeGuy/android_kernel_xiaomi_scarlet kernel/xiaomi/whyred -b a13/qti-haptics --depth=1
-git clone https://github.com/shekhawat2/android_hardware_qcom_media hardware/qcom-caf/msm8998/media --depth=1
-git clone https://github.com/shekhawat2/android_hardware_qcom_audio hardware/qcom-caf/msm8998/audio --depth=1
-git clone https://github.com/shekhawat2/android_hardware_qcom_display hardware/qcom-caf/msm8998/display --depth=1
+git clone https://github.com/NopeNopeGuy/device_xiaomi_whyred device/xiaomi/whyred --depth=1 -b thirteen-lineage
+git clone https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_whyred.git vendor/xiaomi/whyred --depth=1
+git clone https://gitlab.pixelexperience.org/android/vendor-blobs/vendor_xiaomi_sdm660-common.git vendor/xiaomi/sdm660-common --depth=1
+git clone https://github.com/NopeNopeGuy/device_xiaomi_sdm660-common.git device/xiaomi/sdm660-common --depth=1 -b thirteen-lineage
+git clone https://github.com/PixelExperience-Devices/kernel_xiaomi_sdm660.git kernel/xiaomi/sdm660 --depth=1
+git clone https://github.com/PixelExperience/hardware_xiaomi hardware/xiaomi --depth=1
+rm -rf packages/modules/Permission
+rm -rf frameworks/base
+git clone https://github.com/NopeNopeGuy/android_frameworks_base.git frameworks/base --depth=1 -b lineage-20.0
+git clone https://github.com/NopeNopeGuy/android_packages_modules_Permission.git packages/modules/Permission --depth=1 -b lineage-20.0
 export CCACHE_DIR=/tmp/ccache
 export CCACHE_EXEC=$(which ccache)
 export USE_CCACHE=1
@@ -26,4 +23,4 @@ ccache -M 30G
 ccache -o compression=true 
 ccache -z
 export ALLOW_MISSING_DEPENDENCIES=true
-timeout 100m bash -c "source build/envsetup.sh && lunch aosp_whyred-userdebug && mka bacon -j10" || exit 0
+timeout 90m bash -c "source build/envsetup.sh && lunch lineage_whyred-userdebug && mka bacon -j8" || exit 0
